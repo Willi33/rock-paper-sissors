@@ -3,7 +3,31 @@
         var computerArray = ['Rock','Paper','Sissors'];
         var randomIndex = Math.floor(Math.random()*computerArray.length);
         var randomResult = computerArray[randomIndex];
-        console.log(randomResult);
+        //console.log("This is the computer's play: " + randomResult);
     }
-    computerPlay();
+
+    function playRound(playerSelection, computerSelection) {
+	// your code here!
+        //var playerArray = ['rock','paper','sissors'];
+        var playerSelectionCase = playerSelection.toLowerCase();
+        var computerSelection = computerPlay();
+        //console.log(playerSelectionCase);
+        if (computerSelection === 'Rock' && playerSelectionCase === 'rock'){
+            //return "Draw";
+            console.log("draw");
+        }
+        else if (computerSelection === 'Paper' && playerSelection === 'rock'){
+            return "You Lose! " + computerSelection + "beats " + playerSelection;
+        }
+        else if (computerSelection === 'Sissors' && playerSelection === 'rock'){
+            return "You Win! Rock beats Sissors";
+        }
+        else{
+            return "Game GG Error";
+        }
+    }
+
+    const playerSelection = 'rOck'
+    const computerSelection = computerPlay()
+    console.log(playRound(playerSelection, computerSelection))
 </script>
