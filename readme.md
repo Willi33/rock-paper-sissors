@@ -1,0 +1,1 @@
+Implement computer to return 'Rock', 'Paper' or 'Sissors'
