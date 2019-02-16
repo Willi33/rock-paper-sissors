@@ -1,31 +1,48 @@
 <script>
     function computerPlay(){
-        var computerArray = ['Rock','Paper','Sissors'];
+        var computerArray = ['Rock','Paper','Sissor'];
         var randomIndex = Math.floor(Math.random()*computerArray.length);
         var randomResult = computerArray[randomIndex];
-        //console.log("This is the computer's play: " + randomResult);
+        console.log("This is the computer's play: " + randomResult);
+        return randomResult;
     }
 
     function playRound(playerSelection, computerSelection) {
 	// your code here!
-        //var playerArray = ['rock','paper','sissors'];
         var playerSelectionCase = playerSelection.toLowerCase();
-        var computerSelection = computerPlay();
-        //console.log(playerSelectionCase);
-        if (computerSelection === 'Rock' && playerSelectionCase === 'rock'){
-            //return "Draw";
-            console.log("draw");
+        var lose = "You Lose! " + computerSelection + " beats " + playerSelectionCase;
+        var win = "You Win! " + playerSelectionCase + " beats " + computerSelection;
+        var draw = "Draw";
+        console.log(playerSelectionCase);
+        if (computerSelection.toLowerCase() === playerSelectionCase){
+            return draw;
         }
-        else if (computerSelection === 'Paper' && playerSelection === 'rock'){
-            return "You Lose! " + computerSelection + "beats " + playerSelection;
+        else if (computerSelection === 'Rock' && playerSelectionCase === 'paper'){
+            return win;
         }
-        else if (computerSelection === 'Sissors' && playerSelection === 'rock'){
-            return "You Win! Rock beats Sissors";
+        else if (computerSelection === 'Sissor' && playerSelectionCase === 'paper'){
+            return lose;
+        }
+        else if (computerSelection === 'Paper' && playerSelectionCase === 'rock'){
+            return lose;
+        }
+        else if (computerSelection === 'Sissor' && playerSelectionCase === 'rock'){
+            return win;
+        }
+        else if (computerSelection === 'Rock' && playerSelectionCase === 'sissor'){
+            return lose;
+        }
+        else if (computerSelection === 'Paper' && playerSelectionCase === 'sissor'){
+            return win;
         }
         else{
             return "Game GG Error";
         }
     }
+    //rock > sissor, sissor > paper, paper > rock
+
+    
+
 
     const playerSelection = 'rOck'
     const computerSelection = computerPlay()
